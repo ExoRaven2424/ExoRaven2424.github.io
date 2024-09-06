@@ -70,12 +70,18 @@
             background-color: #005582;
         }
         .social-icons {
-            margin: 20px 0;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
         }
         .social-icons a {
             color: #0073b1;
             font-size: 24px;
-            margin: 0 10px;
+            margin: 5px 0;
             transition: color 0.3s;
         }
         .social-icons a:hover {
@@ -86,19 +92,11 @@
 <body>
     <div class="container">
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
-        <h1>Welcome to my page!</h1>
+        <h1>Welcome to ExoRaven2424.github.io!</h1>
         <p>Hi, I’m Sean Cordero 👀</p>
         <p>I’m interested in Sports, Tech, Data, and Programming 🌱</p>
         <p>I’m currently learning SQL, R, and DAX 💞️</p>
         <p>I’m looking to collaborate on SQL Projects, Data Analytics, and Dashboard builds 📫</p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="mailto:seancordero2424@gmail.com" aria-label="Send Email">
-                <i class="fas fa-envelope"></i>
-            </a>
-        </div>
         <p>⚡ Fun fact: I once wrote a program to automate my own playlist generation based on my mood!</p>
         <div class="section">
             <h2>Projects</h2>
@@ -107,6 +105,15 @@
             <p>Excel Project: <em>Coming Soon</em></p>
             <p>Demo Video: <em>Coming Soon</em></p>
         </div>
+    </div>
+
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn Profile">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:seancordero2424@gmail.com" aria-label="Send Email">
+            <i class="fas fa-envelope"></i>
+        </a>
     </div>
 
     <script>
