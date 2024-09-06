@@ -4,26 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExoRaven2424.github.io</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin-top: 50px; 
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
             background-color: #f4f4f4;
+            transition: background-color 0.3s;
         }
-        h1 { 
-            color: #333; 
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
         }
-        p { 
-            color: #666; 
+        h1, h2 {
+            color: #333;
+            transition: color 0.3s;
+        }
+        .dark-mode h1, .dark-mode h2 {
+            color: #f4f4f4;
+        }
+        p {
+            color: #666;
+            transition: color 0.3s;
+        }
+        .dark-mode p {
+            color: #ddd;
         }
         .container {
             width: 80%;
-            margin: 0 auto;
+            max-width: 1200px;
+            margin: 50px auto;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .dark-mode .container {
+            background: #444;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
         }
         .section {
             margin: 20px 0;
@@ -31,21 +51,36 @@
         a {
             color: #0073b1;
             text-decoration: none;
+            transition: color 0.3s;
         }
         a:hover {
             text-decoration: underline;
+            color: #005582;
+        }
+        button {
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005582;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <h1>Welcome to ExoRaven2424.github.io!</h1>
         <p>Hi, I’m Sean Cordero 👀</p>
         <p>I’m interested in Sports, Tech, Data, and Programming 🌱</p>
         <p>I’m currently learning SQL, R, and DAX 💞️</p>
         <p>I’m looking to collaborate on SQL Projects, Data Analytics, and Dashboard builds 📫</p>
         <p>How to reach me: <a href="https://www.linkedin.com/feed/" target="_blank">LinkedIn</a> or by Email: <a href="mailto:seancordero2424@gmail.com">seancordero2424@gmail.com</a></p>
-        <p>⚡ Fun fact: ...</p>
+        <p>⚡ Fun fact: I once wrote a program to automate my own playlist generation based on my mood!</p>
         <div class="section">
             <h2>Projects</h2>
             <p>SQL Project: <em>Coming Soon</em></p>
@@ -54,5 +89,13 @@
             <p>Demo Video: <em>Coming Soon</em></p>
         </div>
     </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
+</html>
+
 </html>
