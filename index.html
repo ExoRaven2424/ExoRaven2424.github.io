@@ -41,8 +41,8 @@
         }
         .toggle-button {
             position: fixed;
-            top: 20px; /* Adjust the vertical position */
-            right: 1000px; /* Align to the left of the right sidebar */
+            top: 20px;
+            right: 1000px; /* Adjust the horizontal position */
             z-index: 1000;
             background-color: #0073b1;
             color: white;
@@ -189,6 +189,7 @@
     </div>
 
     <script>
+        // Toggle Dark Mode Function
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
         }
@@ -225,13 +226,4 @@
                 datasets: [{
                     label: 'Department Budget',
                     data: [3000, 2000, 1000],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                    hoverOffset: 4
-                }]
-            }
-        });
-
-        // Metric Chart
-        var ctxMetric = document.getElementById('metricChart').getContext('2d');
-        new Chart(ctxMetric, {
-            type: 'line
+                    background
