@@ -9,13 +9,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             margin: 0;
             background-color: #f4f4f4;
             display: flex;
             flex-direction: row;
+            height: 100vh;
         }
-        .sidebar {
+        .sidebar-left, .sidebar-right {
             width: 300px;
             background: white;
             padding: 20px;
@@ -23,13 +23,18 @@
             border-radius: 8px;
             position: fixed;
             top: 0;
-            left: 0;
             height: 100%;
             overflow-y: auto;
         }
+        .sidebar-left {
+            left: 0;
+        }
+        .sidebar-right {
+            right: 0;
+        }
         .container {
-            margin-left: 320px;
-            width: calc(100% - 320px);
+            margin: 20px 320px;
+            width: calc(100% - 640px);
             padding: 20px;
         }
         .section {
@@ -80,10 +85,25 @@
         button:hover {
             background-color: #005582;
         }
+        .code-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <div class="sidebar-left">
         <h2>Operations KPIs</h2>
         <div class="chart-container">
             <canvas id="barChart"></canvas>
@@ -110,6 +130,26 @@
             <p>Capstone Project: <em>Coming Soon</em></p>
             <p>Excel Project: <em>Coming Soon</em></p>
             <p>Demo Video: <em>Coming Soon</em></p>
+        </div>
+    </div>
+
+    <div class="sidebar-right">
+        <h2>Script Examples</h2>
+        <div class="code-section">
+            <h3>SQL Script</h3>
+            <pre><code>SELECT * FROM employees WHERE department = 'Sales';</code></pre>
+        </div>
+        <div class="code-section">
+            <h3>DAX Script</h3>
+            <pre><code>SUMX(FILTER(Sales, Sales[Amount] > 1000), Sales[Amount])</code></pre>
+        </div>
+        <div class="code-section">
+            <h3>RStudio Script</h3>
+            <pre><code>data <- read.csv('data.csv')\nsummary(data)</code></pre>
+        </div>
+        <div class="code-section">
+            <h3>HTML Script</h3>
+            <pre><code>&lt;div&gt;\n  &lt;h1&gt;Hello World!&lt;/h1&gt;\n&lt;/div&gt;</code></pre>
         </div>
     </div>
 
