@@ -14,6 +14,12 @@
             display: flex;
             flex-direction: row;
             height: 100vh;
+            transition: background-color 0.3s; /* Smooth transition for dark mode */
+        }
+        /* Dark mode styling */
+        body.dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
         }
         .sidebar-left, .sidebar-right {
             width: 300px;
@@ -25,6 +31,7 @@
             top: 0;
             height: 100%;
             overflow-y: auto;
+            transition: background-color 0.3s, color 0.3s;
         }
         .sidebar-left {
             left: 0;
@@ -35,7 +42,7 @@
         .toggle-button {
             position: fixed;
             top: 20px; /* Adjust the vertical position */
-            right: 200px; /* Align to the left of the right sidebar */
+            right: 250px; /* Align to the left of the right sidebar */
             z-index: 1000;
             background-color: #0073b1;
             color: white;
@@ -104,6 +111,16 @@
             background-color: #f0f0f0;
             padding: 10px;
             border-radius: 5px;
+        }
+        /* Dark mode adjustments for sidebars */
+        body.dark-mode .sidebar-left,
+        body.dark-mode .sidebar-right {
+            background-color: #444;
+            color: #f4f4f4;
+        }
+        /* Dark mode adjustments for buttons and text */
+        body.dark-mode .toggle-button {
+            background-color: #005582;
         }
     </style>
 </head>
@@ -217,25 +234,4 @@
         // Metric Chart
         var ctxMetric = document.getElementById('metricChart').getContext('2d');
         new Chart(ctxMetric, {
-            type: 'line',
-            data: {
-                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-                datasets: [{
-                    label: 'Performance Metrics',
-                    data: [65, 59, 80, 81],
-                    fill: false,
-                    borderColor: '#42A5F5',
-                    tension: 0.1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
+            type: 'line
