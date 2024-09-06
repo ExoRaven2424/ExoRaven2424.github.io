@@ -75,17 +75,26 @@
             left: 20px;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             z-index: 1000;
         }
         .social-icons a {
+            display: flex;
+            align-items: center;
             color: #0073b1;
-            font-size: 24px;
+            text-decoration: none;
             margin: 5px 0;
             transition: color 0.3s;
         }
         .social-icons a:hover {
             color: #005582;
+        }
+        .social-icons i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+        .social-icons span {
+            font-size: 14px;
         }
     </style>
 </head>
@@ -108,11 +117,13 @@
     </div>
 
     <div class="social-icons">
-        <a href="www.linkedin.com/in/sean-cordero242424" target="_blank" aria-label="LinkedIn Profile">
+        <a href="https://www.linkedin.com/in/sean-cordero242424" target="_blank" aria-label="LinkedIn Profile">
             <i class="fab fa-linkedin"></i>
+            <span>LinkedIn Profile</span>
         </a>
         <a href="mailto:seancordero2424@gmail.com" aria-label="Send Email">
             <i class="fas fa-envelope"></i>
+            <span>Email Me</span>
         </a>
     </div>
 
@@ -123,3 +134,4 @@
     </script>
 </body>
 </html>
+
