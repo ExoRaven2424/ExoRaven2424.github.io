@@ -5,69 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ExoRaven2424.github.io</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 0;
             background-color: #f4f4f4;
-            transition: background-color 0.3s;
+            display: flex;
+            flex-direction: row;
         }
-        .dark-mode {
-            background-color: #333;
-            color: #f4f4f4;
-        }
-        h1, h2 {
-            color: #333;
-            transition: color 0.3s;
-        }
-        .dark-mode h1, .dark-mode h2 {
-            color: #f4f4f4;
-        }
-        p {
-            color: #666;
-            transition: color 0.3s;
-        }
-        .dark-mode p {
-            color: #ddd;
-        }
-        .container {
-            width: 80%;
-            max-width: 1200px;
-            margin: 50px auto;
+        .sidebar {
+            width: 300px;
             background: white;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            transition: background-color 0.3s, box-shadow 0.3s;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            overflow-y: auto;
         }
-        .dark-mode .container {
-            background: #444;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        .container {
+            margin-left: 320px;
+            width: calc(100% - 320px);
+            padding: 20px;
         }
         .section {
             margin: 20px 0;
         }
-        a {
-            color: #0073b1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #005582;
-        }
-        button {
-            background-color: #0073b1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #005582;
+        .chart-container {
+            margin-bottom: 20px;
+            position: relative;
+            height: 200px;
+            width: 100%;
         }
         .social-icons {
             position: fixed;
@@ -96,9 +68,34 @@
         .social-icons span {
             font-size: 14px;
         }
+        button {
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005582;
+        }
     </style>
 </head>
 <body>
+    <div class="sidebar">
+        <h2>Operations KPIs</h2>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="doughnutChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="metricChart"></canvas>
+        </div>
+    </div>
+
     <div class="container">
         <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <h1>Welcome to ExoRaven2424.github.io!</h1>
@@ -131,8 +128,67 @@
         function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
         }
+
+        // Bar Chart
+        var ctxBar = document.getElementById('barChart').getContext('2d');
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May'],
+                datasets: [{
+                    label: 'Operations Metric',
+                    data: [12, 19, 3, 5, 2],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Doughnut Chart
+        var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+        new Chart(ctxDoughnut, {
+            type: 'doughnut',
+            data: {
+                labels: ['Sales', 'Marketing', 'Development'],
+                datasets: [{
+                    label: 'Department Budget',
+                    data: [3000, 2000, 1000],
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    hoverOffset: 4
+                }]
+            }
+        });
+
+        // Metric Chart
+        var ctxMetric = document.getElementById('metricChart').getContext('2d');
+        new Chart(ctxMetric, {
+            type: 'line',
+            data: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Performance Metrics',
+                    data: [65, 59, 80, 81],
+                    fill: false,
+                    borderColor: '#42A5F5',
+                    tension: 0.1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
     </script>
 </body>
 </html>
-
-
