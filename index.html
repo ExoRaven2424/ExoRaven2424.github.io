@@ -32,10 +32,27 @@
         .sidebar-right {
             right: 0;
         }
+        .toggle-button {
+            position: fixed;
+            top: 20px; /* Adjust the vertical position */
+            left: 320px; /* Align to the right of the left sidebar */
+            z-index: 1000;
+            background-color: #0073b1;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .toggle-button:hover {
+            background-color: #005582;
+        }
         .container {
-            margin: 20px 320px;
+            margin: 20px 320px; /* Center the container between sidebars */
             width: calc(100% - 640px);
             padding: 20px;
+            text-align: center; /* Center text inside the container */
         }
         .section {
             margin: 20px 0;
@@ -73,18 +90,6 @@
         .social-icons span {
             font-size: 14px;
         }
-        button {
-            background-color: #0073b1;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        button:hover {
-            background-color: #005582;
-        }
         .code-section {
             margin-bottom: 20px;
             padding: 10px;
@@ -116,8 +121,10 @@
         </div>
     </div>
 
+    <!-- Toggle Button moved next to the left sidebar -->
+    <button class="toggle-button" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+
     <div class="container">
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <h1>Welcome to ExoRaven2424.github.io!</h1>
         <p>Hi, I’m Sean Cordero 👀</p>
         <p>I’m interested in Sports, Tech, Data, and Programming 🌱</p>
@@ -232,3 +239,4 @@
     </script>
 </body>
 </html>
+
