@@ -174,47 +174,118 @@
     </div>
 
     <script>
-        // Bar Chart
-        var ctxBar = document.getElementById('barChart').getContext('2d');
-        new Chart(ctxBar, {
-            type: 'bar',
-            data: {
-                labels: ['January', 'February', 'March', 'April', 'May'],
-                datasets: [{
-                    label: 'Operations Metric',
-                    data: [12, 19, 3, 5, 2],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+        document.addEventListener('DOMContentLoaded', function() {
+            // Bar Chart
+            var ctxBar = document.getElementById('barChart').getContext('2d');
+            new Chart(ctxBar, {
+                type: 'bar',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May'],
+                    datasets: [{
+                        label: 'Operations Metric',
+                        data: [12, 19, 3, 5, 2],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
 
-        // Doughnut Chart
-        var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
-        new Chart(ctxDoughnut, {
-            type: 'doughnut',
-            data: {
-                labels: ['Sales', 'Marketing', 'Development'],
-                datasets: [{
-                    label: 'Department Budget',
-                    data: [3000, 2000, 1000],
-                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
-                    hoverOffset: 4
-                }]
-            }
-        });
+            // Doughnut Chart
+            var ctxDoughnut = document.getElementById('doughnutChart').getContext('2d');
+            new Chart(ctxDoughnut, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Sales', 'Marketing', 'Development'],
+                    datasets: [{
+                        label: 'Department Budget',
+                        data: [3000, 2000, 1000],
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                        hoverOffset: 4
+                    }]
+                }
+            });
 
-        // Line Chart
-        var ctxLine = document.getElementById('lineChart').getContext('2d');
-        new Chart(ctxLine, {
-            type: 'line',
-            data: {
-                labels: ['Q1', 'Q2', 'Q3', 'Q
+            // Line Chart
+            var ctxLine = document.getElementById('lineChart').getContext('2d');
+            new Chart(ctxLine, {
+                type: 'line',
+                data: {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    datasets: [{
+                        label: 'Performance Metrics',
+                        data: [10, 15, 8, 12],
+                        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Pie Chart
+            var ctxPie = document.getElementById('pieChart').getContext('2d');
+            new Chart(ctxPie, {
+                type: 'pie',
+                data: {
+                    labels: ['Category A', 'Category B', 'Category C'],
+                    datasets: [{
+                        data: [30, 45, 25],
+                        backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56'],
+                    }]
+                }
+            });
+
+            // Radar Chart
+            var ctxRadar = document.getElementById('radarChart').getContext('2d');
+            new Chart(ctxRadar, {
+                type: 'radar',
+                data: {
+                    labels: ['Metric 1', 'Metric 2', 'Metric 3', 'Metric 4', 'Metric 5'],
+                    datasets: [{
+                        label: 'Department Performance',
+                        data: [20, 10, 30, 40, 25],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Polar Area Chart
+            var ctxPolarArea = document.getElementById('polarAreaChart').getContext('2d');
+            new Chart(ctxPolarArea, {
+                type: 'polarArea',
+                data: {
+                    labels: ['Region 1', 'Region 2', 'Region 3', 'Region 4'],
+                    datasets: [{
+                        data: [11, 16, 7, 3],
+                        backgroundColor: ['#FF6384', '#4BC0C0', '#FFCE56', '#E7E9ED']
+                    }]
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
