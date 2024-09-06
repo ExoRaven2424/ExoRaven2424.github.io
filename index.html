@@ -10,23 +10,24 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            background-color: #222; /* Dark background */
-            color: #f4f4f4; /* Light text color */
+            background-color: #222;
+            color: #f4f4f4;
             display: flex;
             flex-direction: row;
             height: 100vh;
+            overflow: hidden; /* Prevents overflow to keep the scroll within the body */
         }
         .sidebar-left, .sidebar-right {
             width: 300px;
-            background-color: #333; /* Darker background for sidebars */
-            color: #f4f4f4; /* Light text color */
+            background-color: #333;
+            color: #f4f4f4;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
             position: fixed;
             top: 0;
             height: 100%;
-            overflow-y: auto;
+            overflow-y: auto; /* Enables scrolling within the sidebar */
         }
         .sidebar-left {
             left: 0;
@@ -35,10 +36,12 @@
             right: 0;
         }
         .container {
-            margin: 20px 320px; /* Center the container between sidebars */
+            margin: 20px 320px;
             width: calc(100% - 640px);
             padding: 20px;
-            text-align: center; /* Center text inside the container */
+            text-align: center;
+            overflow-y: auto; /* Enables scrolling within the container */
+            max-height: 100vh; /* Ensures the container does not exceed the height of the viewport */
         }
         .section {
             margin: 20px 0;
@@ -61,13 +64,13 @@
         .social-icons a {
             display: flex;
             align-items: center;
-            color: #1E90FF; /* Light blue color for links */
+            color: #1E90FF;
             text-decoration: none;
             margin: 5px 0;
             transition: color 0.3s;
         }
         .social-icons a:hover {
-            color: #87CEEB; /* Lighter blue on hover */
+            color: #87CEEB;
         }
         .social-icons i {
             font-size: 24px;
@@ -79,7 +82,7 @@
         .code-section {
             margin-bottom: 20px;
             padding: 10px;
-            background-color: #444; /* Darker background for code sections */
+            background-color: #444;
             border-radius: 5px;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
         }
@@ -87,10 +90,10 @@
             white-space: pre-wrap;
             word-wrap: break-word;
             margin: 0;
-            background-color: #555; /* Dark background for preformatted text */
+            background-color: #555;
             padding: 10px;
             border-radius: 5px;
-            color: #f4f4f4; /* Light text color for code */
+            color: #f4f4f4;
         }
     </style>
 </head>
@@ -104,7 +107,17 @@
             <canvas id="doughnutChart"></canvas>
         </div>
         <div class="chart-container">
-            <canvas id="metricChart"></canvas>
+            <canvas id="lineChart"></canvas>
+        </div>
+        <!-- Additional Graph Examples -->
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="radarChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="polarAreaChart"></canvas>
         </div>
     </div>
 
@@ -126,21 +139,26 @@
 
     <div class="sidebar-right">
         <h2>Script Examples</h2>
+        <!-- Additional Script Examples for Each Category -->
         <div class="code-section">
             <h3>SQL Script</h3>
             <pre><code>SELECT * FROM employees WHERE department = 'Sales';</code></pre>
+            <pre><code>INSERT INTO customers (name, email) VALUES ('John Doe', 'john@example.com');</code></pre>
         </div>
         <div class="code-section">
             <h3>DAX Script</h3>
             <pre><code>SUMX(FILTER(Sales, Sales[Amount] > 1000), Sales[Amount])</code></pre>
+            <pre><code>CALCULATE(SUM(Sales[Amount]), Sales[Region] = "North")</code></pre>
         </div>
         <div class="code-section">
             <h3>RStudio Script</h3>
             <pre><code>data <- read.csv('data.csv')\nsummary(data)</code></pre>
+            <pre><code>plot(x, y, main="Scatterplot", xlab="X Axis", ylab="Y Axis")</code></pre>
         </div>
         <div class="code-section">
             <h3>HTML Script</h3>
             <pre><code>&lt;div&gt;\n  &lt;h1&gt;Hello World!&lt;/h1&gt;\n&lt;/div&gt;</code></pre>
+            <pre><code>&lt;button onclick="alert('Button Clicked!')"&gt;Click Me&lt;/button&gt;</code></pre>
         </div>
     </div>
 
@@ -194,21 +212,9 @@
             }
         });
 
-        // Metric Chart
-        var ctxMetric = document.getElementById('metricChart').getContext('2d');
-        new Chart(ctxMetric, {
+        // Line Chart
+        var ctxLine = document.getElementById('lineChart').getContext('2d');
+        new Chart(ctxLine, {
             type: 'line',
             data: {
-                labels: ['January', 'February', 'March', 'April', 'May'],
-                datasets: [{
-                    label: 'Performance',
-                    data: [65, 59, 80, 81, 56],
-                    fill: false,
-                    borderColor: '#42A5F5',
-                    tension: 0.1
-                }]
-            }
-        });
-    </script>
-</body>
-</html>
+                labels: ['Q1', 'Q2', 'Q3', 'Q
